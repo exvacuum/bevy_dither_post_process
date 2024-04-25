@@ -10,7 +10,7 @@ use bevy::{
 pub struct DitherPostProcessSettings(Handle<Image>);
 
 impl DitherPostProcessSettings {
-    pub fn new(level: u32, mut images: ResMut<Assets<Image>>) -> Self {
+    pub fn new(level: u32,images: &mut ResMut<Assets<Image>>) -> Self {
         let power = level + 1;
         let map_size: u32 = 1 << power;
         let mut buffer = Vec::<u8>::new();

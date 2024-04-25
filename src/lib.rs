@@ -2,6 +2,8 @@ use bevy::{prelude::*, render::{RenderApp, render_graph::{RenderGraphApp, ViewNo
 
 use crate::components::DitherPostProcessSettings;
 
+pub use nodes::DitherRenderLabel;
+
 pub struct DitherPostProcessPlugin;
 
 pub mod components;
