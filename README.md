@@ -10,7 +10,7 @@ The effect is implemented as a bilevel ordered dither using a Bayer matrix with 
 ![](./doc/screenshot_plant.png)
 Configuration Used:
 ```rs
-grex_dither_post_process::components::DitherPostProcessSettings::new(3, images);
+grex_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_server);
 ```
 ## Compatibility
 
@@ -47,7 +47,7 @@ When spawning a camera:
 ```rs
 commands.spawn((
     // Camera3dBundle...
-    grex_dither_post_process::components::DitherPostProcessSettings::new(level, images);
+    grex_dither_post_process::components::DitherPostProcessSettings::new(level, &asset_server);
 ));
 ```
 

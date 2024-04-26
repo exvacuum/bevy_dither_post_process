@@ -10,7 +10,10 @@ use bevy::{
 pub struct DitherPostProcessSettings(Handle<Image>);
 
 impl DitherPostProcessSettings {
-    pub fn new(level: u32,images: &mut ResMut<Assets<Image>>) -> Self {
+    pub fn new(
+        level: u32,
+        asset_server: &AssetServer,
+    ) -> Self {
         let power = level + 1;
         let map_size: u32 = 1 << power;
         let mut buffer = Vec::<u8>::new();
@@ -52,7 +55,7 @@ impl DitherPostProcessSettings {
         image.texture_descriptor.usage =
         TextureUsages::COPY_DST | TextureUsages::STORAGE_BINDING | TextureUsages::TEXTURE_BINDING;
 
-        let handle = images.add(image);
+        let handle = asset_server.add(image);
 
         Self(handle)
     }
