@@ -1,8 +1,7 @@
 [package]
 name = "grex_dither_post_process"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 
 [dependencies.bevy]
 version = "0.13"
-features = ["dynamic_linking"]
