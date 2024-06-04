@@ -1,19 +1,21 @@
 use bevy::{
     prelude::*,
     render::{
+        extract_component::ExtractComponent,
         render_asset::RenderAssetUsages,
-        render_resource::{Extent3d, TextureDimension, TextureFormat, TextureUsages}, extract_component::ExtractComponent,
+        render_resource::{Extent3d, TextureDimension, TextureFormat, TextureUsages},
     },
 };
 
+/// Component which, when inserted into an entity with a camera, enables the dither post-processing
+/// effect.
 #[derive(Component, ExtractComponent, Clone)]
 pub struct DitherPostProcessSettings(Handle<Image>);
 
 impl DitherPostProcessSettings {
-    pub fn new(
-        level: u32,
-        asset_server: &AssetServer,
-    ) -> Self {
+    /// Constructs a new instance ofthis component, enabling the dither effect using a bayer
+    /// matrix of the given level. A given level *n* will generate a square bayer matrix with a size of *(n+1)^2*.
+    pub fn new(level: u32, asset_server: &AssetServer) -> Self {
         let power = level + 1;
         let map_size: u32 = 1 << power;
         let mut buffer = Vec::<u8>::new();
@@ -38,7 +40,6 @@ impl DitherPostProcessSettings {
                 let value = ((result as f32 / map_size.pow(2) as f32) * 255.0) as u8;
                 buffer.push(value);
             }
-
         }
 
         let mut image = Image::new(
@@ -52,15 +53,16 @@ impl DitherPostProcessSettings {
             TextureFormat::R8Unorm,
             RenderAssetUsages::RENDER_WORLD,
         );
-        image.texture_descriptor.usage =
-        TextureUsages::COPY_DST | TextureUsages::STORAGE_BINDING | TextureUsages::TEXTURE_BINDING;
+        image.texture_descriptor.usage = TextureUsages::COPY_DST
+            | TextureUsages::STORAGE_BINDING
+            | TextureUsages::TEXTURE_BINDING;
 
         let handle = asset_server.add(image);
 
         Self(handle)
     }
-
-    pub fn handle(&self) -> Handle<Image> {
+    /// Gets the handle of the texture representing this component's Bayer matrix
+    pub fn handle(&self) -> Handle<Image> {    
         self.0.clone()
     }
 }

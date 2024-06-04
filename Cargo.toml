@@ -1,6 +1,6 @@
 [package]
-name = "grex_dither_post_process"
-version = "0.1.3"
+name = "bevy_dither_post_process"
+version = "0.1.4"
 edition = "2021"
 
 [dependencies.bevy]

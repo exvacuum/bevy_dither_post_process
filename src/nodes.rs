@@ -1,8 +1,22 @@
-use bevy::{prelude::*, render::{render_graph::{ViewNode, NodeRunError, RenderGraphContext, RenderLabel}, view::ViewTarget, renderer::RenderContext, render_resource::{PipelineCache, BindGroupEntries, RenderPassDescriptor, RenderPassColorAttachment, Operations}, render_asset::RenderAssets}, ecs::query::QueryItem};
+use bevy::{
+    ecs::query::QueryItem,
+    prelude::*,
+    render::{
+        render_asset::RenderAssets,
+        render_graph::{NodeRunError, RenderGraphContext, RenderLabel, ViewNode},
+        render_resource::{
+            BindGroupEntries, Operations, PipelineCache, RenderPassColorAttachment,
+            RenderPassDescriptor,
+        },
+        renderer::RenderContext,
+        view::ViewTarget,
+    },
+};
 
 use super::components;
 use super::resources;
 
+/// Label for dither post-process effect render node.
 #[derive(RenderLabel, Clone, Eq, PartialEq, Hash, Debug)]
 pub struct DitherRenderLabel;
 
@@ -31,7 +45,10 @@ impl ViewNode for DitherRenderNode {
 
         let post_process = view_target.post_process_write();
 
-        let Some(threshold_map) = world.resource::<RenderAssets<Image>>().get(dither_post_process_settings.handle()) else {
+        let Some(threshold_map) = world
+            .resource::<RenderAssets<Image>>()
+            .get(dither_post_process_settings.handle())
+        else {
             warn!("Failed to get threshold map, skipping...");
             return Ok(());
         };

@@ -43,7 +43,7 @@ impl FromWorld for DitherPostProcessPipeline {
         let threshold_map_sampler = render_device.create_sampler(&SamplerDescriptor::default());
 
         let shader = world.resource::<AssetServer>().load::<Shader>(
-            "embedded://grex_dither_post_process/../assets/shaders/dither_post_process.wgsl",
+            "embedded://bevy_dither_post_process/../assets/shaders/dither_post_process.wgsl",
         );
 
         let pipeline_id =

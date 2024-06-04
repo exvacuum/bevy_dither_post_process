@@ -1,4 +1,4 @@
-# grex_dither_post_process
+# bevy_dither_post_process
 
 
 A plugin for the [Bevy](https://bevyengine.org) engine which adds a dither post-processing effect.
@@ -10,7 +10,7 @@ The effect is implemented as a bilevel ordered dither using a Bayer matrix with 
 ![](./doc/screenshot_plant.png)
 Configuration Used:
 ```rs
-grex_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_server);
+bevy_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_server);
 ```
 ## Compatibility
 
@@ -22,8 +22,8 @@ grex_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_s
 
 ### Using git URL in Cargo.toml
 ```toml
-[dependencies.grex_dither_post_process]
-git = "https://github.com/exvacuum/grex_dither_post_process.git"
+[dependencies.bevy_dither_post_process]
+git = "https://github.com/exvacuum/bevy_dither_post_process.git"
 ```
 
 ## Usage
@@ -31,13 +31,13 @@ git = "https://github.com/exvacuum/grex_dither_post_process.git"
 In `main.rs`:
 ```rs
 use bevy::prelude::*;
-use grex_dither_post_process;
+use bevy_dither_post_process;
 
 fn main() {
     App::new()
         .add_plugins((
             DefaultPlugins,
-            grex_dither_post_process::DitherPostProcessPlugin,
+            bevy_dither_post_process::DitherPostProcessPlugin,
         ))
         .run();
 }
@@ -47,7 +47,7 @@ When spawning a camera:
 ```rs
 commands.spawn((
     // Camera3dBundle...
-    grex_dither_post_process::components::DitherPostProcessSettings::new(level, &asset_server);
+    bevy_dither_post_process::components::DitherPostProcessSettings::new(level, &asset_server);
 ));
 ```
 
