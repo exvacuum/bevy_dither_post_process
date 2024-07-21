@@ -33,7 +33,7 @@ impl Plugin for DitherPostProcessPlugin {
 
         app.add_plugins((ExtractComponentPlugin::<DitherPostProcessSettings>::default(),));
 
-        let Ok(render_app) = app.get_sub_app_mut(RenderApp) else {
+        let Some(render_app) = app.get_sub_app_mut(RenderApp) else {
             return;
         };
 
@@ -53,7 +53,7 @@ impl Plugin for DitherPostProcessPlugin {
     }
 
     fn finish(&self, app: &mut App) {
-        let Ok(render_app) = app.get_sub_app_mut(RenderApp) else {
+        let Some(render_app) = app.get_sub_app_mut(RenderApp) else {
             return;
         };
 

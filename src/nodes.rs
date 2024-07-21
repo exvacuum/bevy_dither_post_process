@@ -2,14 +2,10 @@ use bevy::{
     ecs::query::QueryItem,
     prelude::*,
     render::{
-        render_asset::RenderAssets,
-        render_graph::{NodeRunError, RenderGraphContext, RenderLabel, ViewNode},
-        render_resource::{
+        render_asset::RenderAssets, render_graph::{NodeRunError, RenderGraphContext, RenderLabel, ViewNode}, render_resource::{
             BindGroupEntries, Operations, PipelineCache, RenderPassColorAttachment,
             RenderPassDescriptor,
-        },
-        renderer::RenderContext,
-        view::ViewTarget,
+        }, renderer::RenderContext, texture::GpuImage, view::ViewTarget
     },
 };
 
@@ -46,8 +42,8 @@ impl ViewNode for DitherRenderNode {
         let post_process = view_target.post_process_write();
 
         let Some(threshold_map) = world
-            .resource::<RenderAssets<Image>>()
-            .get(dither_post_process_settings.handle())
+            .resource::<RenderAssets<GpuImage>>()
+            .get(dither_post_process_settings.handle().id())
         else {
             warn!("Failed to get threshold map, skipping...");
             return Ok(());

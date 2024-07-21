@@ -1,6 +1,7 @@
 # bevy_dither_post_process
 
-![License](https://img.shields.io/badge/license-MIT%2FApache-blue.svg)
+![Crates](https://img.shields.io/crates/v/bevy_dither_post_process)
+![License](https://img.shields.io/badge/license-0BSD%2FMIT%2FApache-blue.svg)
 ![Tag](https://img.shields.io/github/v/tag/exvacuum/bevy_dither_post_process)
 ![Build](https://img.shields.io/github/actions/workflow/status/exvacuum/bevy_dither_post_process/rust.yml)
 [![Docs](https://img.shields.io/website?url=https%3A%2F%2Fexvacuum.github.io%2Fbevy_dither_post_process%2F&label=docs)](https://exvacuum.github.io/bevy_dither_post_process)
@@ -20,9 +21,16 @@ bevy_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_s
 
 | Crate Version | Bevy Version |
 |---            |---           |
+| 0.2           | 0.14         |
 | 0.1           | 0.13         |
 
 ## Installation
+
+### crates.io
+```toml
+[dependencies]
+bevy_dither_post_process = "0.2"
+```
 
 ### Using git URL in Cargo.toml
 ```toml
@@ -56,4 +64,8 @@ commands.spawn((
 ```
 
 This effect will only run for cameras which contain this component.
+
+## License
+
+This crate is licensed under your choice of 0BSD, Apache-2.0, or MIT license.
 
