@@ -4,6 +4,9 @@ version = "0.2.1"
 edition = "2021"
 description = "A post-process black and white ordered dithering effect for the Bevy game engine."
 license = "0BSD OR MIT OR Apache-2.0"
+repository = "https://github.com/exvacuum/bevy_dither_post_process"
 
 [dependencies.bevy]
 version = "0.14"
+default-features = false
+features = ["bevy_render", "bevy_core_pipeline"]
