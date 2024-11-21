@@ -1,6 +1,6 @@
 [package]
 name = "bevy_dither_post_process"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 description = "A post-process black and white ordered dithering effect for the Bevy game engine."
 license = "0BSD OR MIT OR Apache-2.0"

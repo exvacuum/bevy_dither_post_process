@@ -18,7 +18,7 @@ fn fragment(
 
     let base_color = textureSample(screen_texture, screen_sampler, in.uv);
     let luma = (0.2126 * base_color.r + 0.7152 * base_color.g + 0.0722 * base_color.b);
-    let value = f32(luma >= threshold);
+    let value = f32(luma > threshold);
 
     return vec4f(value, value, value, 1.0);
 }
