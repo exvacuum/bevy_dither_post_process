@@ -10,8 +10,8 @@ A plugin for the [Bevy](https://bevyengine.org) engine which adds a dither post-
 The effect is implemented as a bilevel ordered dither using a Bayer matrix with a configurable level. It dithers the image to black and white only, and operates on the entire screen.
 
 ## Screenshots
-![](./doc/screenshot.png)
-![](./doc/screenshot_plant.png)
+![](https://git.exvacuum.dev/bevy_dither_post_process/plain/doc/screenshot.png)
+![](https://git.exvacuum.dev/bevy_dither_post_process/plain/doc/screenshot_plant.png)
 Configuration Used:
 ```rs
 bevy_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_server);
