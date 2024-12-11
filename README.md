@@ -3,7 +3,6 @@
 [![Crates](https://img.shields.io/crates/v/bevy_dither_post_process)](https://crates.io/crates/bevy_dither_post_process)
 ![License](https://img.shields.io/badge/license-0BSD%2FMIT%2FApache-blue.svg)
 ![Tag](https://img.shields.io/github/v/tag/exvacuum/bevy_dither_post_process)
-![Build](https://img.shields.io/github/actions/workflow/status/exvacuum/bevy_dither_post_process/rust.yml)
 [![Docs](https://img.shields.io/docsrs/bevy_dither_post_process)](https://docs.rs/bevy_dither_post_process)
 
 A plugin for the [Bevy](https://bevyengine.org) engine which adds a dither post-processing effect.
