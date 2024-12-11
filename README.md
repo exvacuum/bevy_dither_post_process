@@ -21,6 +21,7 @@ bevy_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_s
 
 | Crate Version | Bevy Version |
 |---            |---           |
+| 0.3           | 0.15         |
 | 0.2           | 0.14         |
 | 0.1           | 0.13         |
 
@@ -29,13 +30,13 @@ bevy_dither_post_process::components::DitherPostProcessSettings::new(3, &asset_s
 ### crates.io
 ```toml
 [dependencies]
-bevy_dither_post_process = "0.2"
+bevy_dither_post_process = "0.3"
 ```
 
 ### Using git URL in Cargo.toml
 ```toml
 [dependencies.bevy_dither_post_process]
-git = "https://github.com/exvacuum/bevy_dither_post_process.git"
+git = "https://git.exvacuum.dev/bevy_dither_post_process"
 ```
 
 ## Usage
@@ -58,7 +59,7 @@ fn main() {
 When spawning a camera:
 ```rs
 commands.spawn((
-    // Camera3dBundle...
+    // Camera3d...
     bevy_dither_post_process::components::DitherPostProcessSettings::new(level, &asset_server);
 ));
 ```

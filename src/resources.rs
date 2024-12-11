@@ -10,7 +10,6 @@ use bevy::{
             TextureFormat, TextureSampleType,
         },
         renderer::RenderDevice,
-        texture::BevyDefault,
     },
 };
 
@@ -67,6 +66,7 @@ impl FromWorld for DitherPostProcessPipeline {
                             write_mask: ColorWrites::ALL,
                         })],
                     }),
+                    zero_initialize_workgroup_memory: false,
                 });
 
         Self {
